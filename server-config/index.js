@@ -1,7 +1,7 @@
 // require("dotenv").config();
 
 // SET EXPRESS ENVIRONMENT
-const express = require("express");
+const express = require('express');
 const app = express();
 
 // Set express variables to parse URLS and read any 
@@ -13,15 +13,21 @@ app.use(express.json());
 //-------------------------------------------
 
 // Use Morgan as a HTTP server logger
-const logger = require("morgan");
-app.use(logger("dev"));
+const logger = require('morgan')
+app.use(logger('dev'))
 
 // USE Mongoose as an ORM for our Mongo Database
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/mtgCardDB");
+mongoose.connect("mongodb://localhost/mtgCardDB", (err) => {
+  if (err) {
+      console.log("There is a problem with the connection" + err)
+  } else {
+      console.log("Mongoose connection is good.")
+  }
+})
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
   }
 
 require('../routes')(app);
