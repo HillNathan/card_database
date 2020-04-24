@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
-import "./style.css";
+// import "./style.css";
 
 class Navbar extends Component {
   redirect = () => {
@@ -17,22 +17,21 @@ class Navbar extends Component {
               </Link>
           </div>
           <div className="button-holder">
-            <button
-              className="nav-buttons"
-              onClick={event => this.props.handleLogout(event, this.redirect)}
-            >
-              Logout
-            </button>
-            { (this.props.page === "stats") ?
-              <Link to={"/main"} label={"Subscriptions"}>
+              <Link to={"/main"} label={"Main"}>
                 <button className="nav-buttons">
-                  Subscriptions
+                  Main
                 </button>
               </Link>
-              :
-              <Link to={"/stats"} label={"Statistics"}>
+            
+              <Link to={"/list"} label={"List"}>
                 <button className="nav-buttons">
-                  Statistics
+                  List
+                </button>
+              </Link>
+              
+              <Link to={"/search"} label={"Add"}>
+                <button className="nav-buttons">
+                  Search
                 </button>
               </Link>  
             }
