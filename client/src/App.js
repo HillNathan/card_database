@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar2'
 import Main from './components/Main'
 import List from './components/List'
 import Search from './components/Search'
@@ -36,11 +36,13 @@ state = {
   render() {
     return (
       <Router>
+        
         {/* Inserting Navbar here for React Router Navigation */}
         <Navbar />
         
         {/* Switch Tag will change content below the navbar based on the route hit by the navbar */}
         <Switch>
+        <div className="container">
         <Route exact path="/">
           <div className="App">
             <header className="App-header">
@@ -58,9 +60,11 @@ state = {
         <Route exact path='/search'>
           <Search />
         </Route>
+        </div>
     </Switch>
     {/* Keeping our little React backend tag on the bottom below the routes - kind of like a footer.  */}
     <p className="App-intro">{this.state.data}</p>
+
     </Router>
     )}
 }
