@@ -1,3 +1,40 @@
+/* 
+Potential Title text styles
+font-family: 'Acme', sans-serif;
+font-family: 'Russo One', sans-serif;
+font-family: 'Boogaloo', cursive;
+font-family: 'Rancho', cursive;
+
+Body text
+font-family: 'Noto Sans HK', sans-serif; 
+
+*/
+
+body {
+  font-family: 'Noto Sans HK', sans-serif; 
+}
+
+.acme {
+  font-family: 'Acme', sans-serif;
+  font-size: 30pt;
+}
+
+.russo {
+  font-family: 'Russo One', sans-serif;
+  font-size: 40pt;
+  color: #fe7832;
+}
+
+.boogaloo {
+  font-family: 'Boogaloo', cursive;
+  font-size: 30pt;
+}
+
+.rancho {
+  font-family: 'Rancho', cursive;
+  font-size: 30pt;
+}
+
 .App {
   text-align: center;
 }

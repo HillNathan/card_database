@@ -3,3 +3,38 @@
   padding: 0.4rem;
   border-bottom: 3px solid #34560f;
 }
+
+.spacer {
+  width: 60%;
+}
+
+.my-logo {
+  color: #fe7832;
+  text-shadow: 2px 2px silver;
+  border-color: rgb(110, 87, 87);
+}
+
+.btn {
+  color: black;
+  background-color: #fe7832;
+  border-color: silver;
+  border-radius: 25px;
+}
+
+.btn:hover {
+  background-color: #b94d15;
+}
+
+.nav-button-group {
+  width: 100%;
+  align-content: right;
+}
+
+.nav-buttons {
+  margin: 5px;
+  width: 100px;
+}
+
+.navbar {
+  border-bottom: 5px solid #b94d15;
+}

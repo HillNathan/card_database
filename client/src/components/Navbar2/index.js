@@ -9,36 +9,41 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link to={'/'} className={'navbar-brand main-logo'} label={'home'}>Navbar</Link>
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+        <Link to={'/'} className={'navbar-brand main-logo russo'} label={'home'}>
+          <span className="my-logo">Arena Binder</span>
+        </Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item active">
-              <Link to={"/main"} label={"Main"}>
-                <button className="nav-buttons">
-                  Main
-                </button>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/list"} label={"List"}>
-                <button className="nav-buttons">
-                  List
-                </button>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/search"} label={"Add"}>
-                <button className="nav-buttons">
-                  Search
-                </button>
-              </Link> 
-            </li>
-          </ul>
-        </div>
+        <span className="nav-button-group">
+          <div className="spacer"></div>
+          <div className="collapse navbar-collapse float-right" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item active">
+                <Link to={"/main"} label={"Main"}>
+                  <button className="btn btn-info nav-buttons">
+                    Main
+                  </button>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/list"} label={"List"}>
+                  <button className="btn btn-info nav-buttons">
+                    List
+                  </button>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/search"} label={"Add"}>
+                  <button className="btn btn-info nav-buttons">
+                    Search
+                  </button>
+                </Link> 
+              </li>
+            </ul>
+          </div>
+        </span>
       </nav>
     );
   }
