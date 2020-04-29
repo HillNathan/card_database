@@ -44,13 +44,8 @@ state = {
         <Switch>
         <div className="container">
         <Route exact path="/">
-          <div className="App">
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Welcome to React</h1>
-            </header>
-          </div> 
-           </Route>
+          <Main /> 
+        </Route>
         <Route exact path='/main'>
           <Main />
         </Route>

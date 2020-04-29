@@ -12,6 +12,7 @@ font-family: 'Noto Sans HK', sans-serif;
 
 body {
   font-family: 'Noto Sans HK', sans-serif; 
+  background-image: url("./pictures/grey-mountain-small.jpg");
 }
 
 .acme {
@@ -20,7 +21,10 @@ body {
 }
 
 .russo {
-  font-family: 'Russo One', sans-serif;
+  font-family: 'Russo One', sans-serif
+}
+
+.main-logo {
   font-size: 40pt;
   color: #fe7832;
 }
@@ -33,6 +37,16 @@ body {
 .rancho {
   font-family: 'Rancho', cursive;
   font-size: 30pt;
+}
+
+.primary-block {
+  margin:5px;
+  height: 1000px;
+  width: 100%;
+  color: silver;
+  background-color: rgb(47,79,79,.5);
+  /* background-color:darkslategray */
+
 }
 
 .App {

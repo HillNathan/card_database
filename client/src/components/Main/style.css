@@ -1,0 +1,25 @@
+.header-row {
+    width: 100%
+}
+
+.page-header {
+    font-size: 30pt;
+    color: #fe7832;
+    text-shadow: 2px 2px silver;
+    width: 100%;
+}
+
+.intro {
+    font-size: 14pt;
+    margin: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.stats-header {
+    font-size: 24pt;
+    color: #fe7832;
+    text-shadow: 2px 2px silver;
+    width: 100%;
+    text-align: center;
+}
