@@ -10,10 +10,21 @@ import Navbar from './components/Navbar2'
 import Main from './components/Main'
 import List from './components/List'
 import Search from './components/Search'
+import Home from './components/Home'
 
 class App extends Component {
 state = {
-    data: null
+    data: null,
+    firstname: "",
+    lastname: "",
+    username: "",
+    arenausername: "",
+    mythicWC: 0,
+    rareWC: 0,
+    uncommonWC: 0,
+    commonWC: 0,
+    collection: [],
+    collectionNames: []
   };
 
   componentDidMount() {
@@ -44,7 +55,7 @@ state = {
         <Switch>
         <div className="container">
         <Route exact path="/">
-          <Main /> 
+          <Home /> 
         </Route>
         <Route exact path='/main'>
           <Main />

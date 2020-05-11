@@ -18,13 +18,15 @@ app.use(logger('dev'))
 
 // USE Mongoose as an ORM for our Mongo Database
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/mtgCardDB", (err) => {
+
+mongoose.connect("mongodb://localhost/mtgCardDB", { useNewUrlParser: true }, (err) => {
   if (err) {
       console.log("There is a problem with the connection" + err)
   } else {
       console.log("Mongoose connection is good.")
   }
 })
+
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
