@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-function Main () {
+const Main = (props) => {
     return (
         <div className='primary-block'>
             <div className="col" >
@@ -24,18 +24,18 @@ function Main () {
                         <table className='table'>
                             <thead>
                                 <tr>
-                                    <th scope='col'><span className="stats-th">Common</span></th>
-                                    <th scope='col'><span className="stats-th">Uncommon</span></th>
-                                    <th scope='col'><span className="stats-th">Rare</span></th>
                                     <th scope='col'><span className="stats-th">Mythic</span></th>
+                                    <th scope='col'><span className="stats-th">Rare</span></th>
+                                    <th scope='col'><span className="stats-th">Uncommon</span></th>
+                                    <th scope='col'><span className="stats-th">Common</span></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope='col'><span className='stats-tr'>15</span></td>
-                                    <td scope='col'><span className='stats-tr'>10</span></td>
-                                    <td scope='col'><span className='stats-tr'>6</span></td>
-                                    <td scope='col'><span className='stats-tr'>7</span></td>
+                                    <td scope='col'><span className='stats-tr'>{props.mythic}</span></td>
+                                    <td scope='col'><span className='stats-tr'>{props.rare}</span></td>
+                                    <td scope='col'><span className='stats-tr'>{props.uncommon}</span></td>
+                                    <td scope='col'><span className='stats-tr'>{props.common}</span></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -12,6 +12,8 @@ import List from './components/List'
 import Search from './components/Search'
 import Home from './components/Home'
 
+const API = require('./orm')
+
 class App extends Component {
 state = {
     data: null,
@@ -32,7 +34,27 @@ state = {
     this.callBackendAPI()
       .then(res => this.setState({ data: res.express }))
       .catch(err => console.log(err));
+      // Also call to get the user information
+    this.callGetUser()
+      .then (response => {
+        console.log(response.data)
+        this.setState({
+          firstname: response.data.firstname,
+          lastname: response.data.lastname,
+          arenausername: response.data.arenausername,
+          mythicWC: response.data.mythicWC,
+          rareWC: response.data.rareWC,
+          uncommonWC: response.data.uncommonWC,
+          commonWC: response.data.commonWC,
+          username: response.data.username
+        })
+      })
   }
+
+
+
+
+
     // Fetches our test GET route from the Express server. 
   callBackendAPI = async () => {
     const response = await fetch('/express_backend');
@@ -43,6 +65,12 @@ state = {
     }
     return body;
   };
+
+  callGetUser = async() => {
+     const userData = await API.getUserData({username: "pjsstp"})
+
+    return userData
+  }
 
   render() {
     return (
@@ -58,7 +86,12 @@ state = {
           <Home /> 
         </Route>
         <Route exact path='/main'>
-          <Main />
+          <Main 
+            common={this.state.commonWC}
+            uncommon={this.state.uncommonWC}
+            rare={this.state.rareWC}
+            mythic={this.state.mythicWC}
+          />
         </Route>
         <Route exact path='/list'>
           <List />
