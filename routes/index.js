@@ -27,5 +27,11 @@ module.exports = app => {
       })
     })
 
+    app.post('/db/bulk_add', (req,res) => {
+      API.bulkAdd(req.body.username, req.body.newCard, (newCardItem) => {
+        res.send(newCardItem)
+      })
+    })
+
 }
 

@@ -4,12 +4,11 @@ import {
   Route,
   Switch
 } from "react-router-dom";
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar2'
 import Main from './components/Main'
 import List from './components/List'
-import Search from './components/Search'
+import AddPack from './components/Add_Pack'
 import Home from './components/Home'
 
 const API = require('./orm')
@@ -25,6 +24,7 @@ state = {
     rareWC: 0,
     uncommonWC: 0,
     commonWC: 0,
+    vaultProgress: 0,
     collection: [],
     collectionNames: []
   };
@@ -51,10 +51,6 @@ state = {
       })
   }
 
-
-
-
-
     // Fetches our test GET route from the Express server. 
   callBackendAPI = async () => {
     const response = await fetch('/express_backend');
@@ -70,6 +66,12 @@ state = {
      const userData = await API.getUserData({username: "pjsstp"})
 
     return userData
+  }
+
+  doAddPack = (event, packObject) => {
+    event.preventDefault();
+    console.log('=========ADD=PACK=========')
+    console.log(packObject)
   }
 
   render() {
@@ -96,8 +98,9 @@ state = {
         <Route exact path='/list'>
           <List />
         </Route>
-        <Route exact path='/search'>
-          <Search />
+        <Route exact path='/addpack'>
+          <AddPack 
+            handleOnSubmit={this.doAddPack}/>
         </Route>
         </div>
     </Switch>

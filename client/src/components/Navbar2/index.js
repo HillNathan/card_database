@@ -35,9 +35,9 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to={"/search"} label={"Add"}>
+                <Link to={"/addpack"} label={"Add"}>
                   <button className="btn btn-info nav-buttons">
-                    Search
+                    Add Pack
                   </button>
                 </Link> 
               </li>

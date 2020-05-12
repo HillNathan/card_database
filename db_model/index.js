@@ -12,14 +12,12 @@ var PlayerSchema = new Schema ({
         rareWC: Number,
         uncommonWC: Number,
         commonWC: Number,
+        vaultProgress: Number,
         cardList: [{
             name: String,
             rarity: String,
             set: String,
-            cmc: Number,
-            type: String,
-            arena_qty: Number,
-            paper_qty: Number
+            quantity: Number
         }]
 });
 

@@ -32,10 +32,10 @@ const Main = (props) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope='col'><span className='stats-tr'>{props.mythic}</span></td>
-                                    <td scope='col'><span className='stats-tr'>{props.rare}</span></td>
-                                    <td scope='col'><span className='stats-tr'>{props.uncommon}</span></td>
-                                    <td scope='col'><span className='stats-tr'>{props.common}</span></td>
+                                    <td><span className='stats-tr'>{props.mythic}</span></td>
+                                    <td><span className='stats-tr'>{props.rare}</span></td>
+                                    <td><span className='stats-tr'>{props.uncommon}</span></td>
+                                    <td><span className='stats-tr'>{props.common}</span></td>
                                 </tr>
                             </tbody>
                         </table>

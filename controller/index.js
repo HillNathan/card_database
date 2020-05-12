@@ -23,5 +23,23 @@ module.exports = {
 
             }
         })
+    },
+
+    bulkAdd: (user, cardObj, cb) => {
+
+        var newCollection = []
+
+        db.findOne({username: user})
+        .then (foundObj => {
+            console.log(foundObj)
+            newCollection = foundObj.cardList
+            newCollection.push(cardObj)
+            db.findOneAndUpdate({username: user}, 
+                {cardList: newCollection})
+            .then(updatedPlayerRecord => {
+                cb(updatedPlayerRecord)
+            })
+        })
+
     }
 }
