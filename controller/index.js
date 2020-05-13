@@ -31,7 +31,6 @@ module.exports = {
 
         db.findOne({username: user})
         .then (foundObj => {
-            console.log(foundObj)
             newCollection = foundObj.cardList
             newCollection.push(cardObj)
             db.findOneAndUpdate({username: user}, 
