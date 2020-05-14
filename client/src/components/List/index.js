@@ -22,9 +22,9 @@ function List (props) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {props.theList.map(card => {
+                                {props.theList.map((card, index) => {
                                     return (
-                                        <tr>
+                                        <tr key={index}>
                                             <td><span className='list-tr'>{card.name}</span></td>
                                             <td><span className='list-tr'>{card.rarity}</span></td>
                                             <td><span className='list-tr'>{card.set}</span></td>

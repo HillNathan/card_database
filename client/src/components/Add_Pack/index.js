@@ -56,7 +56,7 @@ function Main (props) {
                             <label htmlFor="uncommon-grp">Uncommons</label>
                             <div className="row">
                                 <div className="col-4">
-                                    <input className="form-control" type="text" name="uncommon1" id="uncommon1"placeholder="WC" />
+                                    <input className="form-control" type="text" name="uncommon1" id="uncommon1"placeholder="" />
                                 </div>
                                 <div className="col-4">
                                     <input className="form-control" type="text" name="uncommon2" id="uncommon2"placeholder="" />
@@ -68,7 +68,7 @@ function Main (props) {
                             <label htmlFor="common-grp">Commons</label>
                             <div className="row">
                                 <div className="col-4">
-                                    <input className="form-control" type="text" name="common1" id="common1"placeholder="WC" />
+                                    <input className="form-control" type="text" name="common1" id="common1"placeholder="" />
                                 </div>
                                 <div className="col-4">
                                     <input className="form-control" type="text" name="common2" id="common2"placeholder="" />
