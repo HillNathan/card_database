@@ -27,14 +27,20 @@
 .stats-table {
     color: silver;
     width: 100%;
-    margin-right: 40px;
-    margin-left: 40px;
 }
 
 .stats-th {
     color: silver;
+    font-size: 16pt;
+    font-weight: 600;
 }
 
 .stats-tr {
+    color: #b94d15;
+    font-size: 18pt;
+    font-weight: 600;
+}
+
+.progress-pct {
     color: #b94d15;
 }

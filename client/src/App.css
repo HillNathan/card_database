@@ -41,7 +41,7 @@ body {
 
 .primary-block {
   margin:5px;
-  height: 1000px;
+  min-height: 1000px; 
   width: 100%;
   color: silver;
   background-color: rgb(47,79,79,.5);

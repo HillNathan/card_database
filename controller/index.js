@@ -40,5 +40,13 @@ module.exports = {
             })
         })
 
+    },
+
+    updatePlayer: (player, cb) => {
+
+        db.findOneAndUpdate({username:player.username}, player)
+        .then (updatedPlayerRecord => { 
+            cb(updatedPlayerRecord)
+        })
     }
 }

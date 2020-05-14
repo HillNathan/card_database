@@ -16,29 +16,34 @@ const Main = (props) => {
                     </span>
                 </div>
 
-                <div className="row stats-block">
-                    <h3 className="stats-header">
-                        Stats
-                    </h3>
-                    <div className='stats-table'>
-                        <table className='table'>
-                            <thead>
-                                <tr>
-                                    <th scope='col'><span className="stats-th">Mythic</span></th>
-                                    <th scope='col'><span className="stats-th">Rare</span></th>
-                                    <th scope='col'><span className="stats-th">Uncommon</span></th>
-                                    <th scope='col'><span className="stats-th">Common</span></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><span className='stats-tr'>{props.mythic}</span></td>
-                                    <td><span className='stats-tr'>{props.rare}</span></td>
-                                    <td><span className='stats-tr'>{props.uncommon}</span></td>
-                                    <td><span className='stats-tr'>{props.common}</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div className="row justify-content-center">
+                    <div className="col-10">
+                        <h3 className="stats-header">
+                            Stats
+                        </h3>
+                        <div className='stats-table'>
+                            <table className='table'>
+                                <thead>
+                                    <tr>
+                                        <th scope='col'><span className="stats-th">Mythic</span></th>
+                                        <th scope='col'><span className="stats-th">Rare</span></th>
+                                        <th scope='col'><span className="stats-th">Uncommon</span></th>
+                                        <th scope='col'><span className="stats-th">Common</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span className='stats-tr'>{props.mythic}</span></td>
+                                        <td><span className='stats-tr'>{props.rare}</span></td>
+                                        <td><span className='stats-tr'>{props.uncommon}</span></td>
+                                        <td><span className='stats-tr'>{props.common}</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className= 'vault-progress'>
+                            <h4>Vault Progress: <span className='progress-pct'>{props.vault/10}</span> %.</h4>
+                        </div>
                     </div>
                 </div>
             </div>
