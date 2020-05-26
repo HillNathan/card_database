@@ -1,7 +1,8 @@
 const csv = require('@fast-csv/parse')
 const fs = require('fs')
 const axios = require('axios')
-var theFile = 'ikoria.csv'
+var theFile = 'rav-allegiance.csv'
+const theSet = "RNA"
 var bulkAddObj = {}
 var myStartingIndex = 0
 var statusCount = 0
@@ -60,7 +61,7 @@ fs.createReadStream(theFile)
         
             }
             cardObj.quantity = parseInt(cardObj.quantity)
-            cardObj.set = 'IKO'
+            cardObj.set = theSet
         })
         myStartingIndex = rowCount
         doBulkAddAction(myStartingIndex-1, bulkAddObj.newCard)

@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// ADDING IN REACD REDUX TO HANDLE STATE
+// import { Provider } from 'readt-redux'
+// import store from '.store'
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';

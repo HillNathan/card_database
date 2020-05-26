@@ -41,6 +41,10 @@ const Main = (props) => {
                                 </tbody>
                             </table>
                         </div>
+                        <div className= 'manage-wc text-center'>
+                            <button className="btn btn-lg btn-info">Manage my Wildcards</button>
+                        </div>
+
                         <div className= 'vault-progress'>
                             <h4>Vault Progress: <span className='progress-pct'>{props.vault/10}</span> %.</h4>
                         </div>

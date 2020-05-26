@@ -36,11 +36,15 @@
 }
 
 .stats-tr {
-    color: #b94d15;
+    color: #fe7832;
     font-size: 18pt;
     font-weight: 600;
 }
 
 .progress-pct {
-    color: #b94d15;
+    color: #fe7832;}
+
+.manage-wc {
+    margin-top: 10px;
+    margin-bottom: 40px;
 }

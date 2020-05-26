@@ -1,0 +1,37 @@
+.stats-table{
+    text-align: center;
+}
+
+.card-header{
+    font-size: 12pt;
+    font-weight: 600;
+    text-align: center;
+    height: 60px;
+}
+
+.card-info {
+    font-size: 14px;
+    border-bottom: 1px solid black;
+}
+
+.card-quantity {
+    font-size: 14px;
+    margin-top: 4px;
+    text-align: right;
+}
+
+.something {
+    width: 260px;
+    height: 160px;
+    margin: 5px;
+    display: inline-block;
+    background-color: grey;
+
+}
+
+.my-card-content {
+    text-align: left;
+    background-color: grey;
+    height: 100%;
+    padding: 0px;
+}

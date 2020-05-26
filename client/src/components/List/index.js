@@ -11,7 +11,7 @@ function List (props) {
             </div>
             <div className="row list-row justify-content-center">
                 <div className="col">
-                    <div className='stats-table'>
+                    <div className='stats-table display-inline'>
                         <table className='table'>
                             <thead>
                                 <tr>
