@@ -34,7 +34,12 @@ state = {
       newRareWC: 0,
       newUncommonWC: 0,
       newCommonWC: 0,
-      cardsAdded: 0,
+      cardsAdded: 0
+    },
+    genericAlert: {
+      open: false,
+      title: "",
+      message: ""
     }
   };
 
@@ -53,6 +58,12 @@ state = {
   updatePackModal = (value) => {
     this.setState({
       showPackAlert: value
+    })
+  }
+
+  updateAlertMessage = (open, title, message) => {
+    this.setState({
+
     })
   }
 
@@ -271,15 +282,17 @@ state = {
     </Switch>
     {/* Keeping our little React backend tag on the bottom below the routes - kind of like a footer.  */}
     <p className="App-intro">{this.state.data}</p>
-    <button onClick={(()=>this.updatePackModal(true))}>
-        Test
-    </button>
     <ModalPack 
       open={this.state.showPackAlert}
       handleClose={this.updatePackModal}
+      infoToUpdate={this.state.packResults}
+      vaultProgress={this.state.vaultProgress}
       />
     <ModalAlert 
-      open={false}
+      open={this.state.genericAlert.open}
+      title={this.state.genericAlert.title}
+      message={this.state.genericAlert.message}
+      handleClose={this.updateAlertMessage}
     />
     </Router>
     )}

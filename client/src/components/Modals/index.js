@@ -13,7 +13,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export function ModalPack (props) {
     // Alert specially set up to handle returning info from the AddPack component
-    const [open, setOpen] = React.useState(false);
 
     return (
         <Dialog
@@ -42,26 +41,23 @@ export function ModalPack (props) {
 
 export function ModalAlert (props) {
     // A generic alert for every-day use
-    const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
 
     return (
         <Dialog
-            open={open}
+            open={props.open}
             TransitionComponent={Transition}
             keepMounted
-            onClose={handleClose}
+            onClose={props.handleClose}
             aria-labelledby="alert-dialog-slide-title"
             aria-describedby="alert-dialog-slide-description" 
         >
-            Generic info to go here...
+        <DialogTitle>{props.title}</DialogTitle>
+        <DialogContent>{props.message}</DialogContent>
+        <DialogActions>
+          <Button onClick={()=>props.handleClose(false, "", "")} color="primary">
+            CLOSE
+          </Button>
+        </DialogActions>
         </Dialog>
     )
 }
