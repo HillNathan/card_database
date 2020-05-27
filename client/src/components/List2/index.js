@@ -70,7 +70,7 @@ class List extends Component {
                         <div className='stats-table'>
                             {this.state.cardList.slice(this.state.pageStart,this.state.pageStart+12).map((item,index) => {
                                 return (
-                                    <Card className="something" id={index}>
+                                    <Card className="something" key={index}>
                                         <CardContent className="my-card-content" >
                                             <div className="card-header">{item.name}</div>
                                             <div className="card-info">

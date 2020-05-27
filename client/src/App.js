@@ -10,6 +10,7 @@ import Main from './components/Main'
 import List from './components/List2'
 import AddPack from './components/Add_Pack'
 import Home from './components/Home'
+import {ModalPack, ModalAlert} from './components/Modals'
 
 const API = require('./orm')
 
@@ -26,7 +27,15 @@ state = {
     uncommonWC: 0,
     commonWC: 0,
     vaultProgress: 0,
-    cardList: []
+    cardList: [],
+    showPackAlert: false,
+    packResults: {
+      newMythicWC: 0,
+      newRareWC: 0,
+      newUncommonWC: 0,
+      newCommonWC: 0,
+      cardsAdded: 0,
+    }
   };
 
   componentDidMount() {
@@ -39,6 +48,12 @@ state = {
     // hit the databse route to get the most current user data
      const userData = await API.getUserData({username: "pjsstp"})
     return userData
+  }
+
+  updatePackModal = (value) => {
+    this.setState({
+      showPackAlert: value
+    })
   }
 
   doAddPack = (event, packObject) => {
@@ -95,11 +110,9 @@ state = {
       console.log("Wild card found!!")
       this.augmentWildCard(rarity, 1)
     }
-    var found = false
     this.state.cardList.forEach(item => {
       // go through and find the card, then do the process if we find the card. 
       if (item.name === cardName) { 
-        found = true
         if (item.quantity  < 4) this.incrementCardQuantity(cardName)
         else this.updateVaultProgress(rarity)
       }
@@ -111,7 +124,6 @@ state = {
     //  get more than 4 of any rare or mythic. The card is alsy sent from the form differently,
     //  so we need a separate routine to handle the card. 
 
-    var found = false
     var rarity = "rare"
     if (premiumObject.mythic) rarity = "mythic"
 
@@ -123,7 +135,6 @@ state = {
     this.state.cardList.forEach(item => {
       // go through and find the card, then do the process if we find the card. 
       if (item.name === premiumObject.name) { 
-        found = true
         if (item.quantity  < 4) this.incrementCardQuantity(item.name)
       }
     })
@@ -134,11 +145,9 @@ state = {
     //  adding it to our binder instea of receiving gemms or vault progress. 
 
     console.log(`Adding a copy of ${cardName} to my binder!`)
-    var found = false
     var tempList = this.state.cardList
     tempList.forEach(item => {
       if (item.name === cardName) { 
-        found = true
         var newQty = item.quantity
         newQty++
         item.quantity = newQty
@@ -262,7 +271,16 @@ state = {
     </Switch>
     {/* Keeping our little React backend tag on the bottom below the routes - kind of like a footer.  */}
     <p className="App-intro">{this.state.data}</p>
-
+    <button onClick={(()=>this.updatePackModal(true))}>
+        Test
+    </button>
+    <ModalPack 
+      open={this.state.showPackAlert}
+      handleClose={this.updatePackModal}
+      />
+    <ModalAlert 
+      open={false}
+    />
     </Router>
     )}
 }
