@@ -5,8 +5,8 @@ import CardContent from '@material-ui/core/CardContent';
 import ListPagination from '../ListPagination';
 
 
-
 class List extends Component {
+    
     constructor() {
         super();
     
@@ -22,8 +22,6 @@ class List extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.changePage = this.changePage.bind(this);
       }
-    
-      
 
       handleChange(event) {
         let { name, value } = event.target;
@@ -87,12 +85,15 @@ class List extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col pages">
-                        <ListPagination
-                            numPages={this.state.numPages}
-                            updateCurrentPage={this.changePage}
-                        />
+                <div className="row justify-content-center">
+                    <div className="col-6 pages">
+                        <div className="pages">
+                            <ListPagination
+                                numPages={this.state.numPages}
+                                updateCurrentPage={this.changePage}
+                                color="secondary"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

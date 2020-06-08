@@ -38,4 +38,7 @@
 
 .pages {
     text-align:center;
+    align-content: center;
+    background-color: grey;
+    width: 100%;
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import './style.css'
+import Autocomplete from '../Autocomplete';
 const setlist = require("../../data/setlist.json")
 
 function Main (props) {
@@ -17,7 +18,14 @@ function Main (props) {
                             <label htmlFor="rare-mythic">Rare or Mythic</label>
                             <div className="row">
                                 <div className="col-4">
-                                    <input className="form-control" type="text" name="rare-mythic" id="rare-mythic" placeholder="Rare/Mythic" />
+                                    <Autocomplete 
+                                        theClass="form-control"
+                                        theType="text"
+                                        theName="rare-mythic"
+                                        theID="rare-mythic"
+                                        thePlaceholder="Rare/Mythic"
+                                    />
+                                    {/* <input className="form-control" type="text" name="rare-mythic" id="rare-mythic" placeholder="Rare/Mythic" /> */}
                                 </div>
                                 <div className="col-4">
                                     <div className="form-check-inline">

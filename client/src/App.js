@@ -29,13 +29,11 @@ state = {
     vaultProgress: 0,
     cardList: [],
     showPackAlert: false,
-    packResults: {
-      newMythicWC: 0,
-      newRareWC: 0,
-      newUncommonWC: 0,
-      newCommonWC: 0,
-      cardsAdded: 0
-    },
+    packNewMythicWC: 0,
+    packNewRareWC: 0,
+    packNewUncommonWC: 0,
+    packNewCommonWC: 0,
+    packNewCardsAdded: 0,
     genericAlert: {
       open: false,
       title: "",
@@ -63,13 +61,28 @@ state = {
 
   updateAlertMessage = (open, title, message) => {
     this.setState({
-
+      genericAlert: { 
+        open : open,
+        title : title,
+        message : message
+      }
     })
   }
 
   doAddPack = (event, packObject) => {
     // prevent default action so we can handle the click in this function
     event.preventDefault();
+
+    // resetting variables in state that are meant to track progress for each individual pack so that     
+    // they don't stack up over multiple packs. 
+    this.setState({    
+      packNewMythicWC: 0,
+      packNewRareWC: 0,
+      packNewUncommonWC: 0,
+      packNewCommonWC: 0,
+      packNewCardsAdded: 0
+    })
+
 
     // Using a series of async function calls to process the adding of a pack to state. 
     // 
@@ -97,11 +110,18 @@ state = {
                   this.processPremium(packObject.premium) 
                   .then(z => {
                     // Once all of the routines have been called, and the state has been fully updated, 
+                    //  we update our user of their results, clear out the form, and then 
                     //  we hit our API in order to update the database through a POST route, and then 
                     //  hit the DB once more to get the updated information into state
 
+                    // hit DB through Post Route
                     API.updateUserData(this.state)
+
+                    // update state wih fresh user info. 
                     this.updateUser()
+
+                    // display the confirmation dialog
+                    this.updatePackModal(true)
                   })
                 })
               })
@@ -163,6 +183,12 @@ state = {
         newQty++
         item.quantity = newQty
         this.setState({cardList: tempList})
+        var temp = 0
+        temp = this.state.packNewCardsAdded
+        temp++
+        this.setState({
+          packNewCardsAdded : temp
+        })
       }
     })
   }
@@ -178,30 +204,54 @@ state = {
     console.log(rarityAbbv)
 
     var tempWC = 0
+    var temp=0
     switch (rarityAbbv) {
       case "m": 
         console.log("update mythic WC")
         tempWC = this.state.mythicWC
         tempWC = tempWC + change
         this.setState({ mythicWC : tempWC })
+        temp = this.state.packNewMythicWC
+        temp++
+        this.setState({
+          packNewMythicWC : temp
+        })
+
         break
       case "r": 
         console.log("update rare WC")
         tempWC = this.state.rareWC
         tempWC = tempWC + change
-        this.setState({ rareWC : tempWC })
+        this.setState({ rareWC : tempWC })        
+        temp = this.state.packNewRareWC
+        temp++
+        this.setState({
+          packNewRareWC : temp
+        })
+
         break
       case "u": 
         console.log("update uncommon WC")
         tempWC = this.state.uncommonWC
         tempWC = tempWC + change
         this.setState({ uncommonWC : tempWC })
+        temp = this.state.packNewUnommonWC
+        temp++
+        this.setState({
+          packNewUnommonWC : temp
+        })
+
         break
       case "c" : 
         console.log("update common WC")
         tempWC = this.state.commonWC
         tempWC = tempWC + change
         this.setState({ commonWC : tempWC })
+        temp = this.state.packNewCommonWC
+        temp++
+        this.setState({
+          packNewCommonWC : temp
+        })
         break
       default: 
         console.log("this should never get hit")
@@ -279,21 +329,30 @@ state = {
             handleOnSubmit={this.doAddPack}/>
         </Route>
         </div>
-    </Switch>
-    {/* Keeping our little React backend tag on the bottom below the routes - kind of like a footer.  */}
-    <p className="App-intro">{this.state.data}</p>
-    <ModalPack 
-      open={this.state.showPackAlert}
-      handleClose={this.updatePackModal}
-      infoToUpdate={this.state.packResults}
-      vaultProgress={this.state.vaultProgress}
+      </Switch>
+      {/* Keeping our little React backend tag on the bottom below the routes - kind of like a footer.  */}
+      <p className="App-intro">{this.state.data}</p>
+      <ModalPack 
+        open={this.state.showPackAlert}
+        newMythic={this.state.packNewMythicWC}
+        newRare={this.state.packNewRareWC}
+        newUncommon={this.state.packNewUncommonWC}
+        newCommon={this.state.packNewCommonWC}
+        cardsAdded={this.state.packNewCardsAdded}
+        vault={this.state.vaultProgress}
+        handleClose={this.updatePackModal}
+        />
+      <ModalAlert 
+        open={this.state.genericAlert.open}
+        title={this.state.genericAlert.title}
+        message={this.state.genericAlert.message}
+        handleClose={this.updateAlertMessage}
       />
-    <ModalAlert 
-      open={this.state.genericAlert.open}
-      title={this.state.genericAlert.title}
-      message={this.state.genericAlert.message}
-      handleClose={this.updateAlertMessage}
-    />
+      <button 
+        className="btn btn-warning"
+        onClick={()=>this.updatePackModal(true)}>
+        Test Pack Popup
+      </button>
     </Router>
     )}
 }

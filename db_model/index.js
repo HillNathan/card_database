@@ -14,10 +14,18 @@ var PlayerSchema = new Schema ({
         commonWC: Number,
         vaultProgress: Number,
         cardList: [{
+            scryfall_id: String,
+            arena_id: Number,
+            type_line: String,
+            power: String,
+            toughness: String,
             name: String,
             rarity: String,
             set: String,
-            quantity: Number
+            quantity: Number,
+            booster: Boolean,
+            mana_cost: String,
+            cmc: Number
         }]
 });
 
